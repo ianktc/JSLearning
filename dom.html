@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM</title>
+</head>	
+
+	<body>
+		<h1>Test</h1>	
+
+		<h1>Hello</h1>
+		<h1>Goodbye</h1>
+
+		<li id="highlighted">List Item 1</li>
+		<li class="bolded">List Item 1</li>
+		<li class="bolded">List Item 1</li>
+
+		<script type="text/javascript">
+
+			//flashing header
+			var h1 = document.querySelector("h1");
+			var isBlue = false;
+			setInterval(function(){
+				if(isBlue){
+					h1.style.color = "blue";
+				} else {
+					h1.style.color = "black";
+				} 
+				isBlue = !isBlue;
+			}, 1000);
+
+			//selector exercise
+			var highlight = document.getElementById("highlighted");
+			var bold = document.getElementsByClassName("bolded");
+			var body = document.getElementsByTagName("body");
+			console.log(highlight + bold[0] + bold[1] + body[0]);
+
+			//query selector - always returns first element, applies to both id and class
+			var firstH1 = document.querySelector("h1");
+			var highlighted = document.querySelector("#highlighted");
+			var bolded= document.querySelector(".bolded");
+			var special = document.querySelector("li a.special") //all li with 'special' class
+			
+			//querySelectorAll selects all of an item
+			var all = document.querySelectorAll("h1") 
+
+			//following doesn't work because bold is an HTMLCollection cannot use forEach()
+			bold.forEach(function(item){
+				console.log(item);
+			});
+
+			
+
+		</script>	
+	</body>
+
+</html>
