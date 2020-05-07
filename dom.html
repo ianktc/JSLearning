@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style type="text/css">
+		
+		.purple{
+			background: purple;
+		}
+
+	</style>
 	<title>DOM</title>
 </head>	
 
@@ -13,8 +20,12 @@
 		<li id="highlighted">List Item 1</li>
 		<li class="bolded">List Item 1</li>
 		<li class="bolded">List Item 1</li>
+		
+		<button id="colour">CLick Me!</button>
 
 		<script type="text/javascript">
+
+			/*
 
 			//flashing header
 			var h1 = document.querySelector("h1");
@@ -27,6 +38,7 @@
 				} 
 				isBlue = !isBlue;
 			}, 1000);
+			
 
 			//selector exercise
 			var highlight = document.getElementById("highlighted");
@@ -48,9 +60,23 @@
 				console.log(item);
 			});
 
-			
+			*/
 
+			var colourChange = document.querySelector("#colour");
+			var changed = true;
+
+			colourChange.addEventListener("click", function(){
+				
+				// if(changed) document.body.style.background = "purple";
+				// else document.body.style.background = "white";
+				// changed = !changed;
+
+				document.body.classList.toggle("purple");
+			});
+		
+	
 		</script>	
+	
 	</body>
 
 </html>

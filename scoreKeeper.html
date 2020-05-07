@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>ScoreKeeper</title>
+
+</head>	
+
+	<body>
+
+		<h1>ScoreKeeper</h1>	
+
+		<h2 id="scoreBoard">
+			<span id="score1">0</span>
+			to 
+			<span id="score2">0</span>
+		</h2>
+
+		<h3 id = "score">Playing to </h3>
+
+		<input type="number" id="points" step="1">
+
+		<button id="p1">Player 1</button>
+		<button id="p2">Player 2</button>
+		<button id="reset">Reset</button>
+		<style type="text/css">
+		
+		.winner{
+			color: green;
+		}
+
+	</style>
+		<script type="text/javascript">
+
+			var p1 = 0;
+			var p2 = 0;
+			var gameOver = false;
+			var score;
+
+			//events
+
+			//highscore choice
+			document.querySelector("input").addEventListener("change", function(){
+				score = document.getElementById("points").value;
+				document.getElementById("score").textContent = "Playing to " + score;
+				score = Number(score);
+			});
+
+			//p1 update
+			document.querySelector("#p1").addEventListener("click", function(){
+				if(!gameOver) {
+					p1++;
+
+					if(p1 === score){
+						document.querySelector("#score1").classList.add("winner");
+						gameOver = true;
+					}
+
+					//update scoreboard
+					document.getElementById("score1").textContent = p1;
+					
+				}
+			});
+			
+			//p2 update
+			document.querySelector("#p2").addEventListener("click", function(){
+				if(!gameOver) {
+					p2++;
+				
+					if(p2 === score){
+						document.querySelector("#score2").classList.add("winner");
+						gameOver = true;
+					}
+
+					//update scoreboard
+					document.getElementById("score2").textContent = p2;
+				}
+			});	
+			
+			//reset update
+			document.querySelector("#reset").addEventListener("click", function(){
+
+				p1 = 0;
+				p2 = 0;
+				gameOver = false;
+
+				//toggle colour
+				document.getElementById("score1").classList.remove("winner");
+				document.getElementById("score2").classList.remove("winner");
+
+				//update scoreboard
+				document.getElementById("score1").textContent = p1;
+				document.getElementById("score2").textContent = p2;
+
+			});		
+	
+		</script>	
+	
+	</body>
+
+</html>
