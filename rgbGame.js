@@ -21,7 +21,7 @@ function game(){
 	document.querySelector("#reset").textContent = "New Colours";
 
 	colourDisplay.textContent = pickedColour;
-
+	
 	for(i = 0; i < squares.length; i++){
 		
 		//assign square colours
