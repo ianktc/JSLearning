@@ -1,0 +1,19 @@
+<%- include("partials/header") %>
+
+<!-- <%= %> contains java script hence embedded js
+use regular js syntax etc -->
+
+<!-- 
+	<%= %> is used when returning something 
+	<% %> is used to evaluate js but not display on html
+-->
+
+<h1>You fell in love with: <%= thingVar %> </h1>
+
+<% if(thingVar.toLowerCase() === "thingy"){ %>
+	<p>Good Choice</p>
+<% } %> 
+
+<%- include("partials/footer") %>
+
+
